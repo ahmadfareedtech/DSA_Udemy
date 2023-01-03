@@ -14,5 +14,4 @@ public class Array1D {
         System.out.println(Arrays.toString(arr));
     }
 
-
 }
