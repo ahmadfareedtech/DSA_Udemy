@@ -1,5 +1,5 @@
 public class SingleDimensionArray {
-    int arr[] = null;
+    int arr[] = null; // public
 
     public SingleDimensionArray(int sizeOfArray) {
         arr = new int[sizeOfArray];
@@ -28,5 +28,24 @@ public class SingleDimensionArray {
             System.out.println("Array no longer exist!");
         }
 
+    }
+
+    public void searchInArray(int value) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == value) {
+                System.out.println("Value is found at the index of " + i);
+                return;
+            }
+        }
+        System.out.println(value + " is not found!");
+    }
+
+    public void deleteValue(int index) {
+        try {
+            arr[index] = Integer.MIN_VALUE;
+            System.out.println("The value has been deleted successfully!");
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Index provided is not in the range of array!");
+        }
     }
 }
