@@ -34,4 +34,37 @@ public class TwoDimensionalArray {
             System.out.println("Invalid index for 2D array!");
         }
     }
+
+    // Traversing array
+    public void traverse2DArray() {
+        for (int row = 0; row < arr.length; row++) {
+            for (int col = 0; col < arr[0].length; col++) {
+                System.out.println(arr[row][col] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    // Searching a single value in the array
+    public void searchingValue (int value) {
+        for (int row = 0; row < arr.length; row++) {
+            for (int col = 0; col < arr[0].length; col++) {
+                if (arr[row][col] == value) {
+                    System.out.println("found " + value + " at row# " + row + "and, col#" + col);
+                    return;
+                }
+            }
+        }
+        System.out.println("provided value does not exist in array!");
+    }
+
+    // Deleting a value from the array
+    public void deleteValue(int row, int col) {
+        try {
+            System.out.println("Successfully deleted: " + arr[row][col]);
+            arr[row][col] = Integer.MIN_VALUE;
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("This index is not valid for array!");
+        }
+    }
 }
