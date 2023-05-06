@@ -12,7 +12,7 @@ public class TwoDimensionalArray {
     }
 
     // Inserting value in the array
-    public void insertValueIntheArray(int row, int col, int value) {
+    public void insertValueInTheArray(int row, int col, int value) {
         try {
             if (arr[row][col] == Integer.MIN_VALUE) {
                 arr[row][col] = value;
@@ -66,5 +66,26 @@ public class TwoDimensionalArray {
         } catch (IndexOutOfBoundsException e) {
             System.out.println("This index is not valid for array!");
         }
+    }
+
+    // rotate 2D matrix
+    public boolean rotateMatrix(int[][] matrix) {
+        if (matrix.length == 0 || matrix.length != matrix[0].length) return false;
+        int n = matrix.length;
+        for (int layer = 0; layer < n/2; layer++) {
+            int first = layer; // layers represent number squares we will perform swaps on
+            int last = n - 1 - layer; // last element according to current layer
+            for (int i=first; i<last; i++) {
+                int offset = i - first;
+                int top = matrix[first][i];
+                matrix[first][i] = matrix[last-offset][first];
+                matrix[last-offset][first] = matrix[last][last-offset];
+                matrix[last][last-offset] = matrix[i][last];
+                matrix[i][last] = top;
+            }
+
+        }
+        return true;
+
     }
 }
